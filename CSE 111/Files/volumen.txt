@@ -1,0 +1,5 @@
+current date: 2022-09-30 14:17:57.633402
+width of the tire:45.0
+aspect ratio of the tire:43.0
+diameter of the wheel:233.0
+volume of the tire:16.2
