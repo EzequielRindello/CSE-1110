@@ -1,2 +1,3 @@
-Python courses at BYU
-Completed projects for BYU cse 110 and cse 111 course.
+Repository of the courses taken and completed in BYU - Idaho
+
+Completed projects for CSE-110 and CSE-111
