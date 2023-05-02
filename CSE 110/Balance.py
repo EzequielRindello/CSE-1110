@@ -1,31 +1,32 @@
 print("Enter the names and balances of bank accounts (type: quit when done)")
 
-names = []
-balances = []
+# create emty lists
+NAMES = []
+BALANCES = []
 
 name = None
 
-# Build the lists
+# build the lists
 while name != "quit":
     name = input("What is the name of this account? ")
 
     if name != "quit":
         balance = float(input("What is the balance? "))
 
-        names.append(name)
-        balances.append(balance)
+        NAMES.append(name)
+        BALANCES.append(balance)
 
-# Display all of the accounts with their balances
-# Compute the total at the same time.
+# display all of the accounts with their balances
+# compute the total at the same time.
 total = 0
 
 print("\nAccount Information:")
-for i in range(len(names)):
-    print(f"{i}. {names[i]} - ${balances[i]:.2f}")
+for i in range(len(NAMES)):
+    print(f"{i}. {NAMES[i]} - ${BALANCES[i]:.2f}")
 
-    total += balances[i]
+    total += BALANCES[i]
 
-average = total / len(balances)
+average = total / len(BALANCES)
 
 print()
 print(f"Total: ${total:.2f}")
@@ -37,9 +38,9 @@ print(f"Average: ${average:.2f}")
 highest_name = None
 highest_balance = -1
 
-for i in range(len(names)):
-    name = names[i]
-    balance = balances[i]
+for i in range(len(NAMES)):
+    name = NAMES[i]
+    balance = BALANCES[i]
 
     if balance > highest_balance:
         # We have a new highest!
@@ -57,9 +58,9 @@ while change_account == "yes":
         index = int(input("What account index do you want to update? "))
         new_amount = float(input("What is the new amount? "))
 
-        balances[index] = new_amount
+        BALANCES[index] = new_amount
 
     # Now print the balances
     print("\nAccount Information:")
-    for i in range(len(names)):
-        print(f"{i}. {names[i]} - ${balances[i]:.2f}")
+    for i in range(len(NAMES)):
+        print(f"{i}. {NAMES[i]} - ${BALANCES[i]:.2f}")
