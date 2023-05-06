@@ -13,8 +13,8 @@ def main():
 
 def miles_per_gallon(start_miles, end_miles, amount_gallons):
     distance = end_miles - start_miles
-    mpg = distance / amount_gallons
-    return mpg
+    miles_per_gallon = distance / amount_gallons
+    return miles_per_gallon
 
 
 if __name__ == "__main__":
