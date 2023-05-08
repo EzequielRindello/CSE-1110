@@ -18,14 +18,14 @@ def main():
     pass
 
 
-def miles_per_gallon(start_miles, end_miles, amount_gallons):
+def miles_per_gallon(start_miles: float, end_miles: float, amount_gallons: float):
     """Compute and return the average number of miles
     that a vehicle traveled per gallon of fuel."""
     mpg = abs(end_miles - start_miles) / amount_gallons
     return mpg
 
 
-def lp100k_from_mpg(mpg):
+def lp100k_from_mpg(mpg: float):
     """Convert miles per gallon to liters per 100
     kilometers and return the converted value."""
     lp100k = 235.215 / mpg

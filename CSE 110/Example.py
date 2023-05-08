@@ -11,7 +11,7 @@ def main():
     print(f"{efficiency:.2f} miles per gallon")
 
 
-def miles_per_gallon(start_miles, end_miles, amount_gallons):
+def miles_per_gallon(start_miles: float, end_miles: float, amount_gallons: float):
     distance = end_miles - start_miles
     miles_per_gallon = distance / amount_gallons
     return miles_per_gallon
