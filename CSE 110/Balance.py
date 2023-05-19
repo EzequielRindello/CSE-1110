@@ -84,13 +84,8 @@ def update_acount():
         print(f"{i}. {NAMES[i]} - ${BALANCES[i]:.2f}")
     try:
         index = int(input("What account index do you want to update? "))
-        if index in len(BALANCES):
-            new_amount = float(input(f"What is the new amount of {NAMES[index]}? "))
-            BALANCES[index] = new_amount
-        else:  
-            console_clear() 
-            print(err_mesagge())
-            read_key()    
+        new_amount = float(input(f"What is the new amount of {NAMES[index]}? "))
+        BALANCES[index] = new_amount    
     except:
         console_clear() 
         print(err_mesagge())
