@@ -21,6 +21,7 @@ def menu():
     answer = input()
     return answer
 
+
 def prints(x):  # Display results with two decimals.
     print("----------------------------------")
     print(f"The result is: {x:.2f}")
@@ -57,7 +58,7 @@ def main():  # Main funtion.
     # Loop for the menu of the program so the user can use it multiple times if she/he wants.
     while True:
         # Gets input from the user.
-        answer =menu()
+        answer = menu()
 
         # Based on the input from the user call the selected funtion.
         match answer:
@@ -73,7 +74,6 @@ def main():  # Main funtion.
                             break
                         except:
                             print("Error. Please enter a valid number.")
-
                     elif area == "2":
                         try:
                             radio = float(input("Enter the radio: "))
@@ -82,7 +82,6 @@ def main():  # Main funtion.
                             break
                         except:
                             print("Error. Please enter a valid number.")
-
                     elif area == "3":
                         try:
                             width = float(input("Enter the width: "))
@@ -135,7 +134,6 @@ def main():  # Main funtion.
                 break
             case _:
                 print("Invalid input.")
-
 
 
 # Call the main funtion.

@@ -1,66 +1,130 @@
-print("Enter the names and balances of bank accounts (type: quit when done)")
+import os
+import msvcrt  # Required for Windows only
 
-# create emty lists
 NAMES = []
-BALANCES = []
+BALANCES = []  # create global emty lists
 
-name = None
 
-# build the lists
-while name != "quit":
-    name = input("What is the name of this account? ")
+def read_key():
+    print("Press any key to continue...")
+    msvcrt.getch()
 
-    if name != "quit":
-        balance = float(input("What is the balance? "))
 
-        NAMES.append(name)
-        BALANCES.append(balance)
+def console_clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-# display all of the accounts with their balances
-# compute the total at the same time.
-total = 0
 
-print("\nAccount Information:")
-for i in range(len(NAMES)):
-    print(f"{i}. {NAMES[i]} - ${BALANCES[i]:.2f}")
+def err_mesagge():
+    return "Error. Please enter a valid choice"
 
-    total += BALANCES[i]
 
-average = total / len(BALANCES)
+def menu():
+    return int(input("1: Create accounts\n2: Accounts info\n3: Uptate Acount\n4: Exit\n"))
 
-print()
-print(f"Total: ${total:.2f}")
-print(f"Average: ${average:.2f}")
 
-# Stretch Challenges:
+def create_account():
+    name = ""
+    print("\nEnter the names and balances of bank accounts (type: quit when done)")
+    # build the lists
+    while name != "quit":
+        name = input("What is the name of this new account? ")
 
-# Find the highest balance:
-highest_name = None
-highest_balance = -1
+        if name != "quit":
+            try:
+                balance = float(input(f"What is the balance of {name}? "))
+                NAMES.append(name)
+                BALANCES.append(balance)
+            except:
+                print(err_mesagge())
+                read_key()
 
-for i in range(len(NAMES)):
-    name = NAMES[i]
-    balance = BALANCES[i]
 
-    if balance > highest_balance:
-        # We have a new highest!
-        highest_balance = balance
-        highest_name = name
+def accounts_info():
+    # display all of the accounts with their balances
+    # compute the total at the same time.
+    total = 0
+    if len(NAMES) == 0 & len(BALANCES) == 0:
+        print("The list is empty")
+    else:
+        print("\nAccount Information:\n")
+        print(
+            "------------------------------------------------------------------------------")
+        for i in range(len(NAMES)):
+            print(f"{i}. {NAMES[i]} - ${BALANCES[i]:.2f}")
 
-print(f"Highest balance: {highest_name} - ${highest_balance:.2f}")
+            total += BALANCES[i]
 
-change_account = "yes"
+        average = total / len(BALANCES)
 
-while change_account == "yes":
-    change_account = input("\nDo you want to update an account? ")
+        print(f"\nTotal: ${total:.2f}")
+        print(f"Average: ${average:.2f}")
 
-    if change_account == "yes":
-        index = int(input("What account index do you want to update? "))
-        new_amount = float(input("What is the new amount? "))
+        # Stretch Challenges:
 
-        BALANCES[index] = new_amount
+        # Find the highest balance:
+        highest_name = None
+        highest_balance = -1
 
-    # Now print the balances
-    print("\nAccount Information:")
+        for i in range(len(NAMES)):
+            name = NAMES[i]
+            balance = BALANCES[i]
+
+            if balance > highest_balance:
+                # We have a new highest!
+                highest_balance = balance
+                highest_name = name
+
+        print(f"Highest balance: {highest_name} - ${highest_balance:.2f}")
+        print(
+            "------------------------------------------------------------------------------")
+
+
+def update_acount():
     for i in range(len(NAMES)):
         print(f"{i}. {NAMES[i]} - ${BALANCES[i]:.2f}")
+    try:
+        index = int(input("What account index do you want to update? "))
+        if index in len(BALANCES):
+            new_amount = float(input(f"What is the new amount of {NAMES[index]}? "))
+            BALANCES[index] = new_amount
+        else:  
+            console_clear() 
+            print(err_mesagge())
+            read_key()    
+    except:
+        console_clear() 
+        print(err_mesagge())
+        read_key()  
+
+
+def main():
+    console_clear()
+    print("Welcome to our program! Please choose one of the following options.")
+
+    while True:
+        try:
+            answer = menu()
+            match answer:
+                case 1:
+                    create_account()
+                    console_clear()
+                case 2:
+                    console_clear()
+                    accounts_info()
+                    read_key()
+                    console_clear()
+                case 3:
+                    update_acount()
+                    console_clear()
+                case 4:
+                    console_clear()
+                    print("Goodbye!")
+                    break
+                case _:
+                    print(err_mesagge())
+        except:
+            print(err_mesagge())
+
+
+if __name__ == "__main__":
+    main()
