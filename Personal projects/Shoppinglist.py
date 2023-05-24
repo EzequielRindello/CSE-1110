@@ -79,7 +79,7 @@ def main():
             case "4":
                 compute_total(prices_list)
             case "5":
-                print("Thank you. Goodbye.")
+                print("Thanks for using our program! Goodbye.")
                 break
 
 
