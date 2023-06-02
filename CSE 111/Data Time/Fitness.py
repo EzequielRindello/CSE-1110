@@ -41,6 +41,7 @@ def compute_age(birth_str):
         (birthdate.month == today.month and
             birthdate.day > today.day):
         years -= 1
+        
 
     return years
 

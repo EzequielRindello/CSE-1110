@@ -1,5 +1,16 @@
 # Use the datetime library
 from datetime import datetime
+import os
+import msvcrt
+
+
+def read_key():
+    print("Press any key to continue...")
+    msvcrt.getch()
+
+
+def console_clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def main():

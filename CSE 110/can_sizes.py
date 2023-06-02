@@ -1,10 +1,11 @@
 import math
-
+import os
 PI = math.pi
 
 
 def main():
     """this program calculates and prints the storage efficiency of different types of cans based on their dimensions"""
+    console_clear()
     create_can("#1 Picnic", 6.83, 10.16)
     create_can("#2", 8.73, 11.59)
     create_can("#2.5", 10.32, 11.91)
@@ -47,6 +48,9 @@ def compute_storage_efficiency(volume: float, surface: float):
 def print_results(name: str, storage: float):
     """ prints results"""
     print(f"{name} {storage:.2f}")
+    
+def console_clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 if __name__ == "__main__":
